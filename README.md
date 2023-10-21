@@ -26,9 +26,9 @@ The `StoryManager` manages the transitions between nodes by processing various c
 
 The `StoryManager` relies on a dictionary of nodes. Nodes can be chained in any order but one node must be named `start`. Nodes are chained using the choices section of the node structure. Each choice should have a `nextNode` field that is the name of a valid node.
 
-```javascript
 A three part story might look like
 
+```javascript
 const nodes = {};
 
 // Every story needs a node named "start".
