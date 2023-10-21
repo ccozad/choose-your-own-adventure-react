@@ -1,10 +1,10 @@
 import React from 'react';
 import Chapter1 from '../stories/the-map/Chapter1';
 
-export function createStory(storyName, chapterName) {
+export function createChapter(storyName, chapterName, onChapterCompleted) {
     if (storyName === "the-map") {
         if (chapterName === "Chapter1") {
-            return (<Chapter1 />);
+            return (<Chapter1 onChapterCompleted={onChapterCompleted}/>);
         } else {
             return (<p>Chapter not found.</p>);
         }
