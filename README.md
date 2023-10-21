@@ -69,9 +69,13 @@ nodes["ending1"] = {
 };
 ```
 
+# Rules
+
+Coming soon! This section will explain how to tell the `StoryEngine` which choice to take when transitioning to the next node. For example, if a section of the story requires having obtained the small key, a rule can written to enforce that condition before allowing the player to progress to that chapter.
+
 ## Challenge Nodes
 
-Challenge nodes are interactive mini games. Challenge nodes communicate with the `StoryManager` using two different call backs
+Challenge nodes are interactive mini games. Challenges are an active game play way of making choices instead of just selecting an option like traditional choose your own adventure books. Challenge nodes communicate with the `StoryManager` using two different call backs
 
 - `onChallengeCompleted(result)`
 - `onChallengeFailed(result)`
