@@ -4,8 +4,22 @@ import PropTypes from 'prop-types';
 function Chapter1({onChapterCompleted}) {
     return (
         <>
-            <p>You awake in a mysterious inn with an old map spread on the table.</p>
-            <button onClick={() => { onChapterCompleted({experience: 1}) }}>Continue</button>
+            <div className='nes-container is-rounded is-dark' style={{margin: "4rem"}}>
+                <p>You awake in a mysterious inn with an old map spread on the table.</p>
+            </div>
+            <div className='nes-container with-title' style={{margin: "4rem"}}>
+                <p className='title'>Actions</p>
+                <div style={{margin: "1rem"}}>
+                    <button style={{width: "100%"}} className='nes-btn' onClick={() => { onChapterCompleted({experience: 1}) }}>Examine Map</button>
+                </div>
+                <div style={{margin: "1rem"}}>
+                    <button style={{width: "100%"}} className='nes-btn' onClick={() => { onChapterCompleted({experience: 1}) }}>Inspect Area</button>
+                </div>
+                <div style={{margin: "1rem"}}>
+                    <button style={{width: "100%"}} className='nes-btn' onClick={() => { onChapterCompleted({experience: 1}) }}>Leave Room</button>
+                </div>
+            </div>
+            
         </>
     );
 }

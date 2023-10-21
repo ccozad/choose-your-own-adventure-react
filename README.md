@@ -2,6 +2,8 @@
 
 An open source choose your own adventure game with a the twist of embedded mini games
 
+![Chapter Example](/screenshots/chapter.png?raw=true "Chapter Example")
+
 # Getting Started
 
 - *Install dependencies* `npm install`
