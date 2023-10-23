@@ -11,7 +11,7 @@ function MockChallenge({
     for ( let i = 0; i < attributes.length; i++) {
         if(attributes[i].type === "button") {
             if ( attributes[i].outcome === "success") {
-                formElenets.push(<button type="button" key={i} onClick={() => {
+                formElenets.push(<button type="button" className='nes-btn' key={i} onClick={() => {
                     let response = {};
                     response[attributes[i].name] = {
                         effect: attributes[i].effect,
@@ -19,7 +19,7 @@ function MockChallenge({
                     onChallengeCompleted(response);
                 }}>{attributes[i].label}</button>);
             } else {
-                formElenets.push(<button type="button" key={i} onClick={() => {
+                formElenets.push(<button type="button" className='nes-btn' key={i} onClick={() => {
                     let response = {};
                     response[attributes[i].name] = {
                         effect: attributes[i].effect,
@@ -32,8 +32,11 @@ function MockChallenge({
 
     return (
         <>
-            <div>Mock Challenge</div>
-            {formElenets}
+            <div className='nes-container' style={{margin: "4rem"}}>
+                <div>Mock Challenge</div>
+                {formElenets}
+            </div>
+            
         </>
     );
 }
