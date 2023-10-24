@@ -36,7 +36,27 @@ import StoryManager from '../../engine/StoryManager';
                 nextNode: "ending1",
             }
         ]
-    };
+     };
+
+     nodes["challenge2"] = {
+         "type": "challenge",
+         "challengeName": "SlidePuzzleChallenge",
+         "attributes": [
+             {
+                 type: "button",
+                 outcome: "success",
+                 name: "wizard",
+                 effect: "15",
+                 label: "Wizard +15"
+             }
+         ],
+         "choices": [
+             {
+                 name: "default",
+                 nextNode: "ending1",
+             }
+         ]
+     };
 
     nodes["ending1"] = {
         "type": "ending",
