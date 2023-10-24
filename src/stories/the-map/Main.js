@@ -16,7 +16,18 @@ import StoryManager from '../../engine/StoryManager';
                 nextNode: "challenge1",
             }
         ]
-    };
+        };
+
+        nodes["start2"] = {
+            "type": "story",
+            "chapterName": "Chapter1",
+            "choices": [
+                {
+                    name: "default",
+                    nextNode: "challenge2",
+                }
+            ]
+        };
 
     nodes["challenge1"] = {
         "type": "challenge",

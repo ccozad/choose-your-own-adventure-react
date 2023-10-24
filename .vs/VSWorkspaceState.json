@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\nginx_config",
+    "\\screenshots",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\assets\\fonts",
+    "\\src\\challenges",
+    "\\src\\engine",
+    "\\src\\stories",
+    "\\src\\stories\\the-map"
   ],
-  "SelectedNode": "\\C:\\Users\\tapet\\Source\\Repos\\choose-your-own-adventure-react",
+  "SelectedNode": "\\src\\challenges\\SlidePuzzleChallenge.js",
   "PreviewInSolutionExplorer": false
 }
