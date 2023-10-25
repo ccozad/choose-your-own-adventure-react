@@ -14,19 +14,12 @@ import StoryManager from '../../engine/StoryManager';
             {
                 name: "default",
                 nextNode: "challenge1",
+            },
+            {
+                name: "slidePuzzle",
+                nextNode: "challenge2"
             }
         ]
-        };
-
-        nodes["start2"] = {
-            "type": "story",
-            "chapterName": "Chapter1",
-            "choices": [
-                {
-                    name: "default",
-                    nextNode: "challenge2",
-                }
-            ]
         };
 
     nodes["challenge1"] = {
@@ -49,12 +42,12 @@ import StoryManager from '../../engine/StoryManager';
         ]
      };
 
-     nodes["challenge2"] = {
+      nodes["slidePuzzle"] = {
          "type": "challenge",
          "challengeName": "SlidePuzzleChallenge",
          "attributes": [
              {
-                 type: "button",
+                 type: "button", 
                  outcome: "success",
                  name: "wizard",
                  effect: "15",

@@ -12,29 +12,34 @@ function StoryManager({storyName, nodes = {}, rules = []}) {
     });
     const navigate = useNavigate();
     
-    function getNextNode() {
+    function getNextNode(choice = null) {
+        console.log("getNextNode");
+        console.log(choice);
         if (node) {
-            let choiceScores = [];
-            let maxScoreIndex = 0;
-            let maxScore = -1;
-            for(let i = 0; i < node.choices.length; i++) {
-                choiceScores.push(0);
-                //let choice = node.choices[i];
-                if(rules) {
-                    /*rules.foreach(rule => {
-                        if (rule.appliesTo(choice)) {
-                            choiceScores[i] += rule.getScore(choice, stats.current);
-                        }
-                    });*/
+            let nextNode = choice;
+            if (!choice) {
+                let choiceScores = [];
+                let maxScoreIndex = 0;
+                let maxScore = -1;
+                for (let i = 0; i < node.choices.length; i++) {
+                    choiceScores.push(0);
+                    //let choice = node.choices[i];
+                    if (rules) {
+                        /*rules.foreach(rule => {
+                            if (rule.appliesTo(choice)) {
+                                choiceScores[i] += rule.getScore(choice, stats.current);
+                            }
+                        });*/
+                    }
+
+                    if (choiceScores[i] > maxScore) {
+                        maxScoreIndex = i;
+                        maxScore = choiceScores[i];
+                    }
                 }
 
-                if (choiceScores[i] > maxScore) {
-                    maxScoreIndex = i;
-                    maxScore = choiceScores[i];
-                }
+                nextNode = node.choices[maxScoreIndex].nextNode;
             }
-
-            let nextNode = node.choices[maxScoreIndex].nextNode
             
             if (Object.hasOwnProperty.call(nodes, nextNode)) {
                 return nodes[nextNode];
@@ -82,15 +87,26 @@ function StoryManager({storyName, nodes = {}, rules = []}) {
     function onChapterCompleted(response) {
         console.log("Chapter completed.");
         console.log(response);
-        for(const attribute in response) {
-            if (!stats.current[attribute.name]) {
-                stats.current[attribute.name] = attribute.effect;
+
+        let choice = null;
+
+        for (const attribute in response) {
+            console.log("attribute check");
+            console.log(attribute);
+            console.log(response[attribute]);
+            if (attribute != "choice") {
+                if (!stats.current[attribute]) {
+                    stats.current[attribute] = response[attribute].effect;
+                } else {
+                    stats.current[attribute] += response[attribute].effect;
+                }
             } else {
-                stats.current[attribute.name] += attribute.effect;
+                choice = response[attribute].effect;
             }
+            
         }
 
-        let nextNode = getNextNode();
+        let nextNode = getNextNode(choice);
         setNode(nextNode);
     }
 

@@ -10,7 +10,17 @@ function Chapter1({onChapterCompleted}) {
             <div className='nes-container with-title' style={{margin: "4rem"}}>
                 <p className='title'>Actions</p>
                 <div style={{margin: "1rem"}}>
-                    <button style={{width: "100%"}} className='nes-btn' onClick={() => { onChapterCompleted({experience: 1}) }}>Examine Map</button>
+                    <button style={{ width: "100%" }} className='nes-btn' onClick={() => {
+                        onChapterCompleted(
+                            {
+                                experience: {
+                                    effect: 1
+                                },
+                                choice: {
+                                    effect: "slidePuzzle"
+                                }
+                            })
+                    }}>Examine Map</button>
                 </div>
                 <div style={{margin: "1rem"}}>
                     <button style={{width: "100%"}} className='nes-btn' onClick={() => { onChapterCompleted({experience: 1}) }}>Inspect Area</button>
